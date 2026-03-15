@@ -22,3 +22,9 @@ import './commands'
 Cypress.on('uncaught:exception', (err, runnable) => {
   return false; // ignore all uncaught exceptions
 });
+
+
+
+beforeEach(function(){
+  cy.log("I am inside a e2e.js file ")
+})

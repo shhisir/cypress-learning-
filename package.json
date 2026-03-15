@@ -4,12 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "pretest": "echo i am preTest",
+    "posttest": "echo i am a postTest",
+    "test": "echo i am the test ",
+    "hello": "hello world ",
+    "cy-test": "cypress run "
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "cypress": "^15.11.0"
+    "cypress": "^15.11.0",
+    "cypress-file-upload": "^5.0.8"
   }
 }

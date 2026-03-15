@@ -1,11 +1,31 @@
 import { LoginPage } from "./pages/login_page";
+const loginPage = new LoginPage();
+  beforeEach(function () {
+    cy.visit("https://opensource-demo.orangehrmlive.com/");
+  });
 
-it("POM  Demo", function () {
-  const loginPage = new LoginPage();
+describe("all login tests", function () {
+  
 
-  cy.visit("https://opensource-demo.orangehrmlive.com/");
+  it("login sucessful ", function () {
+    loginPage.enterusername("Admin");
+    loginPage.enterPassword("admin123");
+    loginPage.clickLogin();
+  });
 
-  loginPage.enterusrname("Admin");
-  loginPage.enterPassword("admin123");
-  loginPage.clickLogin();
+  it("login with invalid username  ", function () {
+    const loginPage = new LoginPage();
+
+    loginPage.enterusername("AdminInvalid");
+    loginPage.enterPassword("admin123");
+    loginPage.clickLogin();
+  });
+
+  it("login with invalid password", function () {
+    const loginPage = new LoginPage();
+
+    loginPage.enterusername("Admin");
+    loginPage.enterPassword("admin456");
+    loginPage.clickLogin();
+  });
 });

@@ -5,7 +5,7 @@ it("Assertions Demo", () => {
 
   cy.contains("get").click();               // Find the element that contains the text "get" and click it
 
-  cy.wait(5000);                            // Wait for 5 seconds (5000 milliseconds)
+  // cy.wait(5000);                            // Wait for 5 seconds (5000 milliseconds)
 
   cy.get("#query-btn")                    // Select the element with id "query-btn"
     .should("contain", "Button")          // Assert that the element contains the text "Button"
