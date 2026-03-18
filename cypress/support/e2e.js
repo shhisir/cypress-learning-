@@ -25,6 +25,6 @@ Cypress.on('uncaught:exception', (err, runnable) => {
 
 
 
-beforeEach(function(){
-  cy.log("I am inside a e2e.js file ")
-})
+// beforeEach(function(){
+//   cy.log("I am inside a e2e.js file ")
+// })
