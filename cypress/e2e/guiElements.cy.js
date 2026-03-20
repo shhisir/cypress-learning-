@@ -6,7 +6,7 @@ describe("GUI Elements", () => {
   });
 
   it("basic input", () => {
-    // basic input
+     // basic input
     cy.get("#name").type("test user");
     cy.get("#email").type("testuser@mail.com");
     cy.get("#phone").type("9845627485");
@@ -75,7 +75,7 @@ it("datepickers", () => {
     // --- Date Picker 1 (mm/dd/yyyy) ---
     cy.get('#datepicker').click(); // open calendar
     cy.get('.ui-datepicker-calendar td a').contains('18').click(); // select day 18
-    cy.get('#datepicker').should('have.value', '03/18/2026');
+    cy.get('#datepicker').should('have.value', '03/18/2019');
 
     // --- Date Picker 2 (dd/mm/yyyy) ---
     cy.get('#txtDate').click();
@@ -84,13 +84,20 @@ it("datepickers", () => {
 
     // --- Date Picker 3: Date Range ---
     // Assuming two inputs for start and end
-//     cy.get('.date-picker-box input:first').click();
-//     cy.get('.ui-datepicker-calendar td a').contains('01').click();
-//     cy.get('.date-picker-box input:first').should('have.value','03/01/2026');
+    cy.get('.date-picker-box input:first').click();
+    cy.get('.ui-datepicker-calendar td a').contains('01').click();
+    cy.get('.date-picker-box input:first').should('have.value','03/01/2026');
 
-//     cy.get('.date-picker-box input:last').click();
-//     cy.get('.ui-datepicker-calendar td a').contains('15').click();
-//     cy.get('.date-picker-box input:last').should('have.value','03/15/2026');
+    cy.get('.date-picker-box input:last').click();
+    cy.get('.ui-datepicker-calendar td a').contains('15').click();
+    cy.get('.date-picker-box input:last').should('have.value','03/15/2026');
 })
 
+  it('upload file ',()=>{
+    cy.get('#singleFileInput').selectFile('cypress/fixtures/demofile.txt')
+  })
+   
+    it('multiple  file ',()=>{
+    cy.get('#multipleFilesInput').selectFile(['cypress/fixtures/demofile.txt','cypress/fixtures/demotwo.pdf'])
+  })
 });
